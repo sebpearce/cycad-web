@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/sebpearce/cycad" }
+git_source(:github) {|repo_name| "https://github.com/sebpearce/cycad-web" }
 
 gem "cycad", :github => "sebpearce/cycad", :branch => "master"
 
