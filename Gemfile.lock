@@ -54,6 +54,7 @@ GEM
       dry-types (~> 0.12.0)
     ffi (1.9.18)
     formatador (0.2.5)
+    graphql (1.7.13)
     guard (2.14.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -157,6 +158,7 @@ DEPENDENCIES
   dotenv
   dry-transaction
   dry-validation
+  graphql
   guard
   guard-rspec
   pry

@@ -42,6 +42,10 @@ Cycad::Repository.register(:transaction, Database::TransactionRepo.new(Database:
 
 module Cycad
   class << self
+    def find_transaction(id)
+      Cycad::Repository.for(:transaction).by_id(id)
+    end
+
     def transactions
       Cycad::Repository.for(:transaction).all
     end
@@ -62,6 +66,10 @@ module Cycad
 
     def categories
       Cycad::Repository.for(:category).all
+    end
+
+    def find_category(id)
+      Cycad::Repository.for(:category).by_id(id)
     end
 
     def create_category(name)

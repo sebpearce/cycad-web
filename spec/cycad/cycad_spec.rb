@@ -37,6 +37,13 @@ RSpec.describe Cycad, db: true do
         Cycad.create_transaction(existing_transaction_args).value
       end
 
+      context '.find_transaction' do
+        it 'finds a transaction by its ID' do
+          result = Cycad.find_transaction(existing_transaction.id)
+          expect(result.hash).to eq(existing_transaction.hash)
+        end
+      end
+
       context '.delete_transaction' do
         it 'deletes an existing transaction' do
           expect(find_transaction(existing_transaction.id).id).to eq(existing_transaction.id)
@@ -64,6 +71,13 @@ RSpec.describe Cycad, db: true do
     context 'with an existing category' do
       let!(:existing_category) do
         Cycad.create_category('trips').value
+      end
+
+      context '.find_category' do
+        it 'finds a category by its ID' do
+          result = Cycad.find_category(existing_category.id)
+          expect(result.hash).to eq(existing_category.hash)
+        end
       end
 
       context '.rename_category' do
