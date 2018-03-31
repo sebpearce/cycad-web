@@ -2,7 +2,7 @@ require 'bundler'
 Bundler.setup
 
 require 'sinatra'
-require 'cycad'
+require './lib/cycad'
 
 get '/transactions' do
   puts Cycad.transactions

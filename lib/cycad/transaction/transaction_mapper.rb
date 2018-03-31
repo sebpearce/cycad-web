@@ -1,4 +1,4 @@
-require 'cycad/transaction'
+require_relative '../transaction'
 
 module Cycad
   class TransactionMapper < ROM::Mapper

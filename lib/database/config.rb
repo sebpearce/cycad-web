@@ -3,10 +3,10 @@ require 'rom'
 require 'rom-sql'
 require 'rom-repository'
 require 'securerandom'
-require 'cycad/category/category_mapper'
-require 'cycad/transaction/transaction_mapper'
-require 'database/category_relation'
-require 'database/transaction_relation'
+require_relative '../cycad/category/category_mapper'
+require_relative '../cycad/transaction/transaction_mapper'
+require_relative 'category_relation'
+require_relative 'transaction_relation'
 
 module Database
   class Config

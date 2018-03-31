@@ -1,4 +1,4 @@
-require 'cycad/category'
+require_relative '../category'
 
 module Cycad
   class CategoryMapper < ROM::Mapper
