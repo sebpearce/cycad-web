@@ -5,17 +5,25 @@ require 'sinatra'
 require './lib/cycad'
 require './graphql/schema'
 
-get '/transactions' do
-  # Run Queries code in graphql-ruby.org getting started goes here
-  query_string = "
-  {
-    transaction(id: 4) {
-      id
-      amount
-      date
-    }
-  }
-  "
-  result_hash = Schema.execute(query_string)
-  result_hash.to_h.to_s
+options '/graphql' do
+  content_type :json
+
+  response["Access-Control-Allow-Origin"] = '*'
+  response["Access-Control-Allow-Headers"] = 'Content-Type, Authorization'
+  response["Access-Control-Request-Method"] = '*'
+
+  result_hash = Schema.execute('')
+  result_hash.to_json
+end
+
+post '/graphql' do
+  content_type :json
+
+  response["Access-Control-Allow-Origin"] = '*'
+  response["Access-Control-Allow-Headers"] = 'Content-Type, Authorization'
+  response["Access-Control-Request-Method"] = '*'
+
+  query = JSON.parse(request.body.read)['query']
+  result_hash = Schema.execute(query)
+  result_hash.to_json
 end
