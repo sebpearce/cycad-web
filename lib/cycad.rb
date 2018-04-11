@@ -46,8 +46,8 @@ module Cycad
       Cycad::Repository.for(:transaction).by_id(id)
     end
 
-    def transactions
-      Cycad::Repository.for(:transaction).all
+    def transactions(**args)
+      Cycad::Repository.for(:transaction).filter(**args)
     end
 
     def create_transaction(attrs = {})
