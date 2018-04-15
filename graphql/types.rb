@@ -8,7 +8,7 @@ TransactionType = GraphQL::ObjectType.define do
   field :note, types.String
   field :tags, types.String
 
-  field :category, !CategoryType do
+  field :category, CategoryType do
     resolve -> (obj, args, ctx) { Cycad.find_category(obj.category_id) }
   end
 end
