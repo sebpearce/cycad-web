@@ -74,6 +74,20 @@ RSpec.describe Cycad::Transaction::Validator do
       end
     end
 
+    context 'when the category_id is not specified' do
+      let(:input) do
+        {
+          date: Date.new(2017, 5, 4),
+          amount: 5,
+          category_id: nil
+        }
+      end
+
+      it 'returns no errors' do
+        expect(subject.errors).to be_empty
+      end
+    end
+
     context 'when the note is not a string' do
       let(:input) do
         {

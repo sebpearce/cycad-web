@@ -7,7 +7,7 @@ module Cycad
         schema = Dry::Validation.Schema do
           required(:date).filled(:date?)
           required(:amount).filled(:int?, excluded_from?: [0])
-          required(:category_id).filled(:int?)
+          optional(:category_id).maybe(:int?)
           optional(:note).maybe(:str?, max_size?: 255)
           optional(:tags).maybe(:str?)
         end
@@ -19,7 +19,7 @@ module Cycad
         schema = Dry::Validation.Schema do
           optional(:date).filled(:date?)
           optional(:amount).filled(:int?, excluded_from?: [0])
-          optional(:category_id).filled(:int?)
+          optional(:category_id).maybe(:int?)
           optional(:note).maybe(:str?, max_size?: 255)
           optional(:tags).maybe(:str?)
         end
