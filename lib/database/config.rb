@@ -15,6 +15,7 @@ module Database
       conf.register_relation(Database::Relations::Transactions)
       conf.register_mapper(Cycad::CategoryMapper)
       conf.register_mapper(Cycad::TransactionMapper)
+      conf.gateways[:default].use_logger(Logger.new($stdout))
     end
   end
 end
