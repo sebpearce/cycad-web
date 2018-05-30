@@ -10,7 +10,10 @@ TransactionType = GraphQL::ObjectType.define do
   field :category_id, types.Int
 
   field :category, CategoryType do
-    resolve -> (obj, args, ctx) { Cycad.find_category(obj.category_id) }
+    resolve -> (obj, args, ctx) {
+      # Cycad.find_category(obj.category_id)
+      ctx[:category_loader].load(obj.category_id)
+    }
   end
 end
 

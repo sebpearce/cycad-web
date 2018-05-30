@@ -57,6 +57,10 @@ module Cycad
       Cycad::Repository.for(:category).by_id(id)
     end
 
+    def find_categories(ids)
+      Cycad::Repository.for(:category).by_ids(ids)
+    end
+
     def create_category(name)
       Cycad::Category::UseCases::Create.new.call(name: name)
     end

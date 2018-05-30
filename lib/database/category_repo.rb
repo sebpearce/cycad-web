@@ -12,6 +12,10 @@ module Database
       categories.by_pk(id).one
     end
 
+    def by_ids(ids)
+      categories.where(id: ids).to_a
+    end
+
     def by_name(name)
       categories.where(name: name).one
     end
