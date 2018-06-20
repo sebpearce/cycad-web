@@ -1,4 +1,5 @@
 require "graphql"
+require "promise"
 require_relative "query"
 require_relative "mutation"
 

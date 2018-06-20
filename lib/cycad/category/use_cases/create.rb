@@ -20,6 +20,7 @@ module Cycad
 
         def create(input)
           category = repo.create(input)
+          # TODO: is this where we need to return the errors object for GraphQL?
           Right(category)
         end
 
